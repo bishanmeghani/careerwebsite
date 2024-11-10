@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center-align text */
+    background-color: #f9f9f9; /* Optional background color */
+}
+
+.logo {
+    position: absolute; /* Positioning for the logo */
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+}
+
+.button-container {
+    position: absolute; /* Positioning for the buttons */
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+}
+
+a {
+    display: inline-block; /* Make links behave like buttons */
+    padding: 10px 15px;
+    margin-left: 10px; /* Space between buttons */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.signup-button {
+    background-color: #008CBA; /* Blue */
+    color: white;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+form {
+    max-width: 400px;
+    margin: 50px auto; /* Center the form with margin */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white; /* Background color for the form */
+}
+
+.forgot-password {
+    margin-top: 15px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.username {
+    background-color: #e0f7fa; /* Light cyan */
+}
+
+.email {
+    background-color: #ffe0b2; /* Light orange */
+}
+
+.password {
+    background-color: #f1f8e9; /* Light green */
+}
+
+.dob {
+    background-color: #e1bee7; /* Light purple */
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+h1 {
+    margin-top: 70px; /* Space above the heading */
+}
+
+h2 {
+    margin: 10px 0;
+    font-weight: normal; /* Lighter weight for the subtitle */
+}
+
+p {
+    margin: 20px 0; /* Space above and below the paragraph */
+    padding: 0 20px; /* Optional padding for mobile responsiveness */
+}
