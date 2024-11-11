@@ -1,18 +1,21 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 import sqlite3
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # For flash messages
-
-@app.route('/')
-def home():
-    return render_template('index.html')  # Ensure this file exists in the templates folder
+app.secret_key = 'your_secret_key'  # For flash messages and session management
 
 # Connect to the SQLite database
 def get_db_connection():
     conn = sqlite3.connect('users.db')
     conn.row_factory = sqlite3.Row  # So we can access columns by name
     return conn
+
+# Home Route (index page)
+@app.route('/')
+def home():
+    # Check if the user is logged in and pass this info to the template
+    is_logged_in = 'user_id' in session
+    return render_template('index.html', is_logged_in=is_logged_in)
 
 # Sign Up Route
 @app.route('/signup', methods=['GET', 'POST'])
@@ -60,17 +63,21 @@ def login():
         conn.close()
 
         if user:
+            session['user_id'] = user['id']  # Store the user's ID in session to track login state
             flash('Login successful!', 'success')
-            return redirect(url_for('homepage'))  # Redirect to homepage after login
+            return redirect(url_for('home'))  # Redirect to home page after login
         else:
             flash('Invalid credentials. Please try again.', 'danger')
 
     return render_template('login.html')
 
-# Homepage Route
-@app.route('/homepage')
-def homepage():
-    return render_template('index.html')  # Example homepage
+# Logout Route
+@app.route('/logout')
+def logout():
+    # Clear the session and log the user out
+    session.pop('user_id', None)
+    flash('You have been logged out.', 'info')
+    return redirect(url_for('home'))  # Redirect to home page after logout
 
 if __name__ == '__main__':
     app.run(debug=True)

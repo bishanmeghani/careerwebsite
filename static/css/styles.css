@@ -38,6 +38,11 @@ a {
     color: white;
 }
 
+.logout-button {
+    background-color: #ba4400; /* Red */
+    color: white;
+}
+
 a:hover {
     opacity: 0.8;
 }
